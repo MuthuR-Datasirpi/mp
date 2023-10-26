@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "message": "Dummy JSON response created",
+  "data": {
+    "name": "John Doe",
+    "age": 30,
+    "email": "johndoe@example.com",
+    "is_subscribed": true,
+    "preferences": ["sports", "music", "movies"],
+    "address": {
+      "street": "123 Main Street",
+      "city": "Sampleville",
+      "zipcode": "12345"
+    }
+  }
+}
