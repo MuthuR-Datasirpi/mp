@@ -22,6 +22,13 @@ class AppInput extends StatefulWidget {
   // Input prefix section
   final Widget? prefix;
 
+  // Input suffix section
+  final Widget? suffixicon;
+
+  final bool obscuretext;
+
+  final String? obscuringCharacter;
+
   final TextInputType? keyboardType;
 
   final int? maxLength;
@@ -35,6 +42,9 @@ class AppInput extends StatefulWidget {
       this.controller,
       this.autofocus = false,
       this.prefix,
+      this.obscuretext = false,
+      this.obscuringCharacter,
+      this.suffixicon,
       this.maxLength,
       this.keyboardType = TextInputType.text})
       : super(key: key);
@@ -80,7 +90,7 @@ class _AppInputState extends State<AppInput> {
   Widget build(BuildContext context) {
     // Returns a Container widget that acts as the parent for the Input
     return Container(
-      padding: const EdgeInsets.only(left: 14, right: 14, top: 16, bottom: 14),
+      padding: const EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 5),
       decoration: ShapeDecoration(
         color: AppColors.inputFillColor,
         shape: RoundedRectangleBorder(
@@ -95,17 +105,21 @@ class _AppInputState extends State<AppInput> {
       height: widget.height,
       // Input Widget
       child: TextField(
+        obscureText: widget.obscuretext,
+        obscuringCharacter: '*',
         keyboardType: widget.keyboardType,
         autofocus: widget.autofocus,
         controller: widget.controller,
         focusNode: _inputFocusNode,
         style: context.textTheme.titleSmall?.copyWith(
           color: AppColors.inputValueColor,
-          fontSize: 14,
+          fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
-          counter: const Offstage(),
+          counterText: "",
+          suffixIcon: widget.suffixicon,
+          // counter: const Offstage(),
           prefix: widget.prefix != null &&
                   (isFocusedInput || widget.controller!.text.isNotEmpty)
               ? widget.prefix

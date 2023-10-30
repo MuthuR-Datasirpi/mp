@@ -5,6 +5,8 @@ class PagePath {
   static const notificationPermissionScreen = '/notificationPermissionScreen';
   static const noInternetConnection = '/noInternetConnection';
   static const enterPhoneNumber = '/enterPhoneNumber';
+  static const createpassword = '/createpassword';
+  static const signupinfo= '/signupinfo';
   static const pinPage = '/pinPage';
   static const otpPage = '/otpPage';
   static const home = '/home';

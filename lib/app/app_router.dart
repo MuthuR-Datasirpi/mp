@@ -6,9 +6,11 @@ import 'package:mobile/core/resources/page_path.dart';
 import 'package:mobile/core/utils/page_transitions.dart';
 import 'package:mobile/features/address/presentation/screens/address_details_screen.dart';
 import 'package:mobile/features/address/presentation/screens/location_screen.dart';
+import 'package:mobile/features/auth/presentation/screens/create_pwrd_screen.dart';
 import 'package:mobile/features/auth/presentation/screens/login_screen.dart';
 import 'package:mobile/features/auth/presentation/screens/otp_screen.dart';
 import 'package:mobile/features/auth/presentation/screens/pin_screen.dart';
+import 'package:mobile/features/auth/presentation/screens/signup_info_screen.dart';
 import 'package:mobile/features/main/presentation/screens/home/data/models/meal_plan.dart';
 import 'package:mobile/features/main/presentation/screens/home/presentation/screens/brands_listing_screen.dart';
 import 'package:mobile/features/main/presentation/screens/home/presentation/screens/categories_listing_screen.dart';
@@ -81,6 +83,20 @@ class AppRouter {
           state.pageKey,
           PinScreen(params: (state.extra as Map<String, dynamic>?)),
         ),
+      ),
+      GoRoute(
+        path: PagePath.createpassword,
+        parentNavigatorKey: _rootNavigatorKey,
+        pageBuilder: (context, state) =>
+            PageTransitions.buildPageWithSlideTransition(
+                state.pageKey, const CreatePassword()),
+      ),
+      GoRoute(
+        path: PagePath.signupinfo,
+        parentNavigatorKey: _rootNavigatorKey,
+        pageBuilder: (context, state) =>
+            PageTransitions.buildPageWithSlideTransition(
+                state.pageKey, const Signupinfo()),
       ),
       GoRoute(
         path: PagePath.otpPage,
